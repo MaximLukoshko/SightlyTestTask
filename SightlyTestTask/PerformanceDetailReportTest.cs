@@ -24,46 +24,11 @@ namespace SightlyTestTask
         [OneTimeSetUp]
         public void SetupTest()
         {    
-            this.reportPath = DownloadPerformanceDetailReport();
+            this.reportPath = SightlyClient.DownloadPerformanceDetailReport();
 
             this.excelApplication = new Excel.Application();
             this.excelWorkBook = this.excelApplication.Workbooks.Open(this.reportPath);
             this.excelWorkSheet = (Excel.Worksheet)this.excelWorkBook.Sheets[1];
-        }
-
-        private string DownloadPerformanceDetailReport()
-        {
-            string result;
-
-            using (var driver = new ChromeDriver())
-            {
-                var homeURL = "https://staging-newtargetview.sightly.com/";
-
-                driver.Navigate().GoToUrl(homeURL);
-
-                var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
-                wait.Until(dr => dr.FindElement(By.XPath("//input[@placeholder='Your email address']")));
-
-                var emailElement = driver.FindElement(By.XPath("//input[@placeholder='Your email address']"));
-                emailElement.Click();
-                emailElement.SendKeys("​nick@sightly.com");
-
-                var passwordElement = driver.FindElement(By.XPath("//input[@placeholder='Your password']"));
-                passwordElement.Click();
-                passwordElement.SendKeys("​a");
-
-                var loginButton = driver.FindElement(By.XPath("//button[contains(@class, 'login-button')]"));
-                loginButton.Click();
-
-                wait.Until(dr => dr.FindElement(By.XPath("//input[@placeholder='re']")));
-
-                result =
-                    @"C:\Users\maxim.lukoshko\Downloads\PerformanceDetail-Campaign-A48EB038-5D47-40F8-A2BD-E897AEAC4A9F - Copy2.xlsx";
-
-                driver.Close();
-            }
-
-            return result;
         }
 
         [TestCase(1, "Start Date")]
