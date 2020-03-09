@@ -56,17 +56,7 @@ namespace SightlyTestTask
 
             Assert.AreEqual(expectedTitle, columnName);
         }
-
-        [Test(Description = "Check Campaign Name Column")]
-        public void CheckCampaignNameColumn()
-        {
-            var columnName = (string)(this.excelWorkSheet.Cells[5, 4] as Excel.Range).Value;
-            var columnValue = (string)(this.excelWorkSheet.Cells[6, 4] as Excel.Range).Value;
-
-            Assert.AreEqual("Campaign Name", columnName);
-            Assert.AreEqual("Discovery Park of America", columnValue);
-        }
-
+        
         [OneTimeTearDown]
         public void TearDownTest()
         {
