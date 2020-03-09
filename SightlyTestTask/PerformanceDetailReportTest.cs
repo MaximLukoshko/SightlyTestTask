@@ -5,6 +5,8 @@ namespace SightlyTestTask
 
     using NUnit.Framework;
 
+    using OpenQA.Selenium.Chrome;
+
     using SightlyTestTask.Sightly;
     using Excel = Microsoft.Office.Interop.Excel;
 
@@ -48,6 +50,7 @@ namespace SightlyTestTask
         [TestCase(16, "Video Played To 50%")]
         [TestCase(17, "Video Played To 75%")]
         [TestCase(18, "Video Played To 100%")]
+        [TestCase(19, null)]
         public void CheckColumnNames(int column, string expectedTitle)
         {
             var titleRow = 5;

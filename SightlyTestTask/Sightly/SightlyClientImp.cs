@@ -2,6 +2,7 @@
 {
     using OpenQA.Selenium;
     using OpenQA.Selenium.Chrome;
+    using OpenQA.Selenium.Support.UI;
 
     public class SightlyClientImp : ISightlyClient
     {
@@ -24,11 +25,11 @@
 
         public string DownloadPerformanceDetailReport()
         {
-            //var homeURL = "https://www.SauceLabs.com";
-            //this.webDriver.Navigate().GoToUrl(homeURL);
+            var homeURL = @"​https://staging-newtargetview.sightly.com/";
+            this.webDriver.Navigate().GoToUrl(homeURL);
 
-            //var wait = new WebDriverWait(this.webDriver, System.TimeSpan.FromSeconds(15));
-            //wait.Until(dr => dr.FindElement(By.XPath("//a[@href='/beta/login']")));
+            var wait = new WebDriverWait(this.webDriver, System.TimeSpan.FromSeconds(15));
+            wait.Until(dr => dr.FindElement(By.XPath("//a[@href='/beta/login']")));
 
             //var element = this.webDriver.FindElement(By.XPath("//a[@href='/beta/login']"));
 
