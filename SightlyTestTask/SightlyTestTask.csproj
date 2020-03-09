@@ -64,8 +64,6 @@
   <ItemGroup>
     <Compile Include="PerformanceDetailReportTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sightly\SightlyClientImp.cs" />
-    <Compile Include="Sightly\ISightlyClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
